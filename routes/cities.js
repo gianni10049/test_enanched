@@ -81,6 +81,7 @@ citiesRouter.get('/most_searched', async function (req, res) {
 
 
         let city_data = {
+            city_data: city,
             weather: weather_response.data?.weather,
             shops: shops_response.data?.businesses,
         }
