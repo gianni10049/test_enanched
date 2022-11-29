@@ -10,55 +10,55 @@ citiesRouter.get('/most_searched', async function (req, res) {
 
     let cities = [
         {
-            "id": 7034588,
-            "name": "Karangsonojabon",
-            "state": "",
-            "country": "ID",
-            "coord": {
-                "lon": 111.9561,
-                "lat": -8.1689
-            }
-        },
-        {
-            "id": 5702984,
-            "name": "Crescent Valley",
-            "state": "NV",
+            "id": 4165565,
+            "name": "Naples",
+            "state": "FL",
             "country": "US",
             "coord": {
-                "lon": -116.576469,
-                "lat": 40.416031
+                "lon": -81.794807,
+                "lat": 26.14204
             }
         },
         {
-            "id": 7034573,
-            "name": "Jabon",
+            "id": 6535772,
+            "name": "Pregnana Milanese",
             "state": "",
-            "country": "ID",
+            "country": "IT",
             "coord": {
-                "lon": 111.965103,
-                "lat": -8.1645
+                "lon": 9.00704,
+                "lat": 45.515968
             }
         },
         {
-            "id": 3530,
-            "name": "Qabāghlū",
+            "id": 6535773,
+            "name": "Bracca",
             "state": "",
-            "country": "IR",
+            "country": "IT",
             "coord": {
-                "lon": 46.168499,
-                "lat": 36.173302
+                "lon": 9.70875,
+                "lat": 45.823582
             }
         },
         {
-            "id": 5174,
-            "name": "‘Arīqah",
+            "id": 6535775,
+            "name": "Brembate di Sopra",
             "state": "",
-            "country": "SY",
+            "country": "IT",
             "coord": {
-                "lon": 36.48336,
-                "lat": 32.889809
+                "lon": 9.57945,
+                "lat": 45.716679
             }
-        }
+        },
+        {
+            "id": 6535777,
+            "name": "Torre Pallavicina",
+            "state": "",
+            "country": "IT",
+            "coord": {
+                "lon": 9.87706,
+                "lat": 45.446381
+            }
+        },
     ]
 
     for (let city of cities) {
@@ -68,7 +68,7 @@ citiesRouter.get('/most_searched', async function (req, res) {
         let weather_url = `https://api.openweathermap.org/data/2.5/weather?lon=${coords.lon}&lat=${coords.lat}&appid=${app_id}`;
         let weather_response = await axios?.get(weather_url);
 
-        let shops_url = `https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=40.416031&longitude=-116.576469`;
+        let shops_url = `https://api.yelp.com/v3/businesses/search?latitude=${coords.lat}&longitude=${coords.lon}`;
 
             let shops_response = await axios.get(shops_url, {
                 headers: {
