@@ -70,7 +70,6 @@ citiesRouter.get('/most_searched', async function (req, res) {
 
         let shops_url = `https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=40.416031&longitude=-116.576469`;
 
-
             let shops_response = await axios.get(shops_url, {
                 headers: {
                     Authorization: 'Bearer ' + process.env.YELP_KEY,
@@ -78,7 +77,6 @@ citiesRouter.get('/most_searched', async function (req, res) {
                     "Accept-Encoding": "identity",
                 }
             });
-
 
         let city_data = {
             city_data: city,
